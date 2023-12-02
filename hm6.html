@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Manipulation</title>
+  </head>
+  <body>
+    <ul>
+      <li>Mercedes</li>
+      <li>BMW</li>
+      <li>Audi</li>
+    </ul>
+    <script></script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Manipulation</title>
+  </head>
+  <body>
+    <ul>
+      <li>Mercedes</li>
+      <li>BMW</li>
+      <li>Audi</li>
+    </ul>
+    <script>
+      let listItems = document.querySelectorAll("ul li");
+
+      listItems.forEach(function (item) {
+        item.style.color = "blue";
+      });
+
+      let newListItem = document.createElement("li");
+      newListItem.textContent = "Ferrari";
+
+      document.querySelector("ul").appendChild(newListItem);
+    </script>
+  </body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Quiz</title>
+  </head>
+  <body>
+    <div id="quiz-container">
+      
+    </div>
+  </body>
+</html>
+```
+```
+const quizData = [
+        {
+          question: "What is the capital of France?",
+          options: ["Berlin", "Madrid", "Paris", "Rome"],
+          correctAnswer: "Paris",
+        },
+        {
+          question: "Which planet is known as the Red Planet?",
+          options: ["Earth", "Mars", "Jupiter", "Venus"],
+          correctAnswer: "Mars",
+        },
+        {
+          question: "What is the largest mammal on Earth?",
+          options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+          correctAnswer: "Blue Whale",
+        },
+        {
+          question: "In which year did the Titanic sink?",
+          options: ["1905", "1912", "1920", "1931"],
+          correctAnswer: "1912",
+        },
+        {
+          question: "Who wrote 'Romeo and Juliet'?",
+          options: [
+            "Charles Dickens",
+            "Jane Austen",
+            "William Shakespeare",
+            "Mark Twain",
+          ],
+          correctAnswer: "William Shakespeare",
+        },
+      ]
+```
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Interactive Quiz</title>
+     <style>
+       body {
+         font-family: Arial, sans-serif;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+       }
+
+       #quiz-container {
+         max-width: 600px;
+       }
+
+       .question {
+         margin-bottom: 10px;
+       }
+
+       .options {
+         list-style: none;
+         padding: 0;
+       }
+
+       .option {
+         margin-bottom: 5px;
+       }
+     </style>
+   </head>
+   <body>
+     <div id="quiz-container">
+       
+     </div>
+
+     <script>
+       const quizData = [
+         {
+           question: "What is the capital of France?",
+           options: ["Berlin", "Madrid", "Paris", "Rome"],
+           correctAnswer: "Paris",
+         },
+         {
+           question: "Which planet is known as the Red Planet?",
+           options: ["Earth", "Mars", "Jupiter", "Venus"],
+           correctAnswer: "Mars",
+         },
+         {
+           question: "What is the largest mammal on Earth?",
+           options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+           correctAnswer: "Blue Whale",
+         },
+         {
+           question: "In which year did the Titanic sink?",
+           options: ["1905", "1912", "1920", "1931"],
+           correctAnswer: "1912",
+         },
+         {
+           question: "Who wrote 'Romeo and Juliet'?",
+           options: [
+             "Charles Dickens",
+             "Jane Austen",
+             "William Shakespeare",
+             "Mark Twain",
+           ],
+           correctAnswer: "William Shakespeare",
+         },
+       ];
+
+       function createQuiz() {
+         const quizContainer = document.getElementById("quiz-container");
+
+         quizData.forEach((quiz, index) => {
+           const questionDiv = document.createElement("div");
+           questionDiv.classList.add("question");
+           questionDiv.textContent = `${index + 1}. ${quiz.question}`;
+
+           const optionsList = document.createElement("ul");
+           optionsList.classList.add("options");
+
+           quiz.options.forEach((option, optionIndex) => {
+             const optionItem = document.createElement("li");
+             optionItem.classList.add("option");
+
+             const input = document.createElement("input");
+             input.type = "radio";
+             input.name = `question${index}`;
+             input.value = option;
+
+             const label = document.createElement("label");
+             label.textContent = option;
+
+             optionItem.appendChild(input);
+             optionItem.appendChild(label);
+
+             optionsList.appendChild(optionItem);
+           });
+
+           questionDiv.appendChild(optionsList);
+           quizContainer.appendChild(questionDiv);
+         });
+       }
+
+       
+       createQuiz();
+     </script>
+   </body>
+</html>
